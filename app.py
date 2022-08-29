@@ -28,7 +28,7 @@ def main():
 		test = pd.DataFrame(result_list , columns= ['ECG Result'])
 		prob = np.round((model.predict_proba(X_set)*100),3)
 		predictdf = pd.DataFrame(prob, columns= ['Probability of ECG being Normal % ','Probability of ECG graph being Afib % '] )
-		finaldf = pd.concat([ss,predictdf],axis=1)
+		finaldf = pd.concat([test,predictdf],axis=1)
 		st.write(finaldf)
 
 if __name__ ==  '__main__':
