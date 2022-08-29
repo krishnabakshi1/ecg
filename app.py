@@ -8,7 +8,6 @@ import sklearn
 
 model = pickle.load(open('GBCModel.dat', 'rb'))
 Xdata = pd.read_pickle("FinalX.pkl")
-uploaded_file = st.file_uploader('Upload the text/csv file.')
 
 
 st.title('Afib or Normal ECG Classifier')
