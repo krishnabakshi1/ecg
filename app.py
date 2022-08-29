@@ -25,13 +25,13 @@ new_df1 = new_df.fillna(new_df.mean())
 
 X_set = new_df1[176:]
 
-st.button("Click Here to predict"):
-result = model.predict(X_set)
-result_list = (["ECG graph corresponds to Normal" if x == [0] else "ECG graph corresponds to Afib" for x in result] )
-test = pd.DataFrame(result_list , columns= ['ECG Result'])
-prob = np.round((model.predict_proba(X_set)*100),3)
-predictdf = pd.DataFrame(prob, columns= ['Probability of ECG being Normal % ','Probability of ECG graph being Afib % '] )
-finaldf = pd.concat([test,predictdf],axis=1)
-st.write(finaldf)
+if st.button("Click Here to predict"):
+	result = model.predict(X_set)
+	result_list = (["ECG graph corresponds to Normal" if x == [0] else "ECG graph corresponds to Afib" for x in result] )
+	test = pd.DataFrame(result_list , columns= ['ECG Result'])
+	prob = np.round((model.predict_proba(X_set)*100),3)
+	predictdf = pd.DataFrame(prob, columns= ['Probability of ECG being Normal % ','Probability of ECG graph being Afib % '] )
+	finaldf = pd.concat([test,predictdf],axis=1)
+	st.write(finaldf)
 
 
