@@ -12,9 +12,10 @@ Xdata = pd.read_pickle("FinalX.pkl")
 def main():
 	st.title('Afib or Normal ECG Classifier')
 	st.subheader('Perform these steps before uploading the test/csv file -')
-	
+	if uploaded file ==None:
+		return st.error(X)
 	uploaded_file = st.file_uploader('Upload the text/csv file.')
-	
+	 
 	df1= pd.read_csv(uploaded_file, header =None).T
 
 	
