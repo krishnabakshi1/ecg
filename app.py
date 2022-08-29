@@ -14,9 +14,7 @@ def main():
 	st.subheader('Perform these steps before uploading the test/csv file -')
 	
 	uploaded_file = st.file_uploader('Upload the text/csv file.')
-	if uploaded_file == None:
-		st.error(‘Please upload a valid file’)
-		return
+	
 	df1= pd.read_csv(uploaded_file, header =None).T
 
 	
