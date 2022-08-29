@@ -23,8 +23,13 @@ def main():
 	X_set = new_df1[176:]
 
 	if  st.button("Click Here to predict"):
-		prediction = model.predict(X_set)
-		st.write(prediction)
+		result = model.predict(X_set)
+		result_list = (["ECG graph corresponds to Normal" if x == [0] else "ECG graph corresponds to Afib" for x in result] )
+		test = pd.DataFrame(c_list, columns= ['ECG Result'])
+		prob = np.round((model.predict_proba(X_set)*100),3)
+		predictdf = pd.DataFrame(prob, columns= ['Probability of ECG being Normal','Probability of ECG graph being Afib'] )
+		finaldf = pd.concat([ss,predictdf],axis=1)
+		st.write(finaldf)
 
 if __name__ ==  '__main__':
     main() 
